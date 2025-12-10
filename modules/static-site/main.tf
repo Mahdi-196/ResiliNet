@@ -34,3 +34,10 @@ resource "aws_s3_bucket_versioning" "secondary" {
   }
 }
 
+resource "aws_s3_object" "index" {
+  provider     = aws.primary
+  bucket       = aws_s3_bucket.primary.id
+  key          = "index.html"
+  source       = "${path.module}/index.html"
+  content_type = "text/html"
+}
