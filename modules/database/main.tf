@@ -22,10 +22,6 @@ resource "aws_dynamodb_table" "global_table" {
   }
 
   replica {
-    region_name = var.primary_region
-  }
-
-  replica {
     region_name = var.secondary_region
   }
 }

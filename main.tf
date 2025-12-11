@@ -11,7 +11,8 @@ module "static_site" {
 module "database" {
   source = "./modules/database"
   providers = {
-    aws.primary = aws.primary
+    aws.primary   = aws.primary
+    aws.secondary = aws.secondary
   }
   project_name     = var.project_name
   primary_region   = var.primary_region
@@ -30,4 +31,3 @@ module "networking" {
   secondary_bucket_endpoint = module.static_site.secondary_bucket_website_endpoint
   secondary_bucket_zone_id  = module.static_site.secondary_bucket_hosted_zone_id
 }
-

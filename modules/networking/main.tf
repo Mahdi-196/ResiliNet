@@ -32,6 +32,7 @@ resource "aws_route53_record" "primary" {
   zone_id  = data.aws_route53_zone.main.zone_id
   name     = var.domain_name
   type     = "A"
+  allow_overwrite = true
 
   failover_routing_policy {
     type = "PRIMARY"
@@ -52,6 +53,7 @@ resource "aws_route53_record" "secondary" {
   zone_id  = data.aws_route53_zone.main.zone_id
   name     = var.domain_name
   type     = "A"
+  allow_overwrite = true
 
   failover_routing_policy {
     type = "SECONDARY"

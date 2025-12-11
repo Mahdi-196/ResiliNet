@@ -72,7 +72,7 @@ resource "aws_s3_bucket_replication_configuration" "primary" {
       storage_class = "STANDARD"
     }
   }
-  depends_on = [aws_s3_bucket_versioning.primary]
+  depends_on = [aws_s3_bucket_versioning.primary, aws_s3_bucket_versioning.secondary]
 }
 
 resource "aws_s3_bucket_website_configuration" "primary" {
