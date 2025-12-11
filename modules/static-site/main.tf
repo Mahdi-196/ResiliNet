@@ -11,6 +11,7 @@ terraform {
 resource "aws_s3_bucket" "primary" {
   provider = aws.primary
   bucket   = "${var.project_name}-primary-${var.domain_name}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_versioning" "primary" {
@@ -24,6 +25,7 @@ resource "aws_s3_bucket_versioning" "primary" {
 resource "aws_s3_bucket" "secondary" {
   provider = aws.secondary
   bucket   = "${var.project_name}-secondary-${var.domain_name}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_versioning" "secondary" {
